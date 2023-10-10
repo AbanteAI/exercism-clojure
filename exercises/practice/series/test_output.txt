@@ -1,0 +1,13 @@
+
+lein test series-test
+
+lein test :only series-test/number-eq-zero
+
+FAIL in (number-eq-zero) (series_test.clj:11)
+number = 0
+expected: (= [""] (slices "123" 0))
+  actual: (not (= [""] ("" "" "" "")))
+
+Ran 5 tests containing 5 assertions.
+1 failures, 0 errors.
+Tests failed.

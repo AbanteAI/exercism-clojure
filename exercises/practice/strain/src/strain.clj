@@ -1,9 +1,11 @@
 (ns strain)
 
-(defn retain [] ;; <- arglist goes here
-      ;; your code goes here
-)
+(defn keep [coll pred]
+  (lazy-seq
+    (when-let [s (seq coll)]
+      (if (pred (first s))
+        (cons (first s) (keep (rest s) pred))
+        (keep (rest s) pred)))))
 
-(defn discard [] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn discard [coll pred]
+  (keep coll (fn [item] (not (pred item)))))

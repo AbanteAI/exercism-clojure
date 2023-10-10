@@ -1,0 +1,48 @@
+
+lein test crypto-square-test
+
+lein test :only crypto-square-test/cipher-6
+
+FAIL in (cipher-6) (crypto_square_test.clj:47)
+expected: (= "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau " (crypto-square/normalize-ciphertext "If man was meant to stay on the ground, god would have given us roots."))
+  actual: (not (= "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau " "imtgdvsf earwerma yoogoano uuiontnn lvtwttdd esaohghn  sseoau "))
+
+lein test :only crypto-square-test/cipher-2
+
+FAIL in (cipher-2) (crypto_square_test.clj:28)
+expected: (= "wneiaweoreneawssciliprerlneoidktcms" (crypto-square/ciphertext "We all know interspecies romance is weird."))
+  actual: (not (= "wneiaweoreneawssciliprerlneoidktcms" "wneiaweoreneawssciliprerlneoidktcms "))
+
+lein test :only crypto-square-test/cipher-4
+
+FAIL in (cipher-4) (crypto_square_test.clj:34)
+expected: (= "msemo aanin dnin  ndla  etlt  shui " (crypto-square/normalize-ciphertext "Madness, and then illumination."))
+  actual: (not (= "msemo aanin dnin  ndla  etlt  shui " "msemoa anindn in ndl a etlt  shui "))
+
+lein test :only crypto-square-test/cipher-1
+
+FAIL in (cipher-1) (crypto_square_test.clj:25)
+expected: (= "tasneyinicdsmiohooelntuillibsuuml" (crypto-square/ciphertext "Time is an illusion. Lunchtime doubly so."))
+  actual: (not (= "tasneyinicdsmiohooelntuillibsuuml" "tasneyinicdsmiohooelntu illib suuml "))
+
+lein test :only crypto-square-test/segments
+
+FAIL in (segments) (crypto_square_test.clj:18)
+expected: (= ["neverv" "exthin" "eheart" "withid" "lewoes"] (crypto-square/plaintext-segments "Never vex thine heart with idle woes."))
+  actual: (not (= ["neverv" "exthin" "eheart" "withid" "lewoes"] ((\N \e \v \e \r \space \v) (\e \x \space \t \h \i \n) (\e \space \h \e \a \r \t) (\space \w \i \t \h \space \i) (\d \l \e \space \w \o \e) (\s \. \space \space \space \space \space))))
+
+lein test :only crypto-square-test/cipher-3
+
+FAIL in (cipher-3) (crypto_square_test.clj:31)
+expected: (= "vrel aepe mset paoo irpo" (crypto-square/normalize-ciphertext "Vampires are people too!"))
+  actual: (not (= "vrel aepe mset paoo irpo" "vrela epems etpao oirpo"))
+
+lein test :only crypto-square-test/segments-2
+
+FAIL in (segments-2) (crypto_square_test.clj:21)
+expected: (= ["zomg" "zomb" "ies"] (crypto-square/plaintext-segments "ZOMG! ZOMBIES!!!"))
+  actual: (not (= ["zomg" "zomb" "ies"] ((\Z \O \M \G) (\! \space \Z \O) (\M \B \I \E) (\S \! \! \!))))
+
+Ran 13 tests containing 13 assertions.
+7 failures, 0 errors.
+Tests failed.

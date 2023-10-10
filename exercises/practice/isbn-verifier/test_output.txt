@@ -1,0 +1,18 @@
+
+lein test isbn-verifier-test
+
+lein test :only isbn-verifier-test/X-is-only-valid-as-a-check-digit
+
+FAIL in (X-is-only-valid-as-a-check-digit) (isbn_verifier_test.clj:21)
+expected: (= false (isbn? "3-598-2X507-9"))
+  actual: (not (= false true))
+
+lein test :only isbn-verifier-test/check-digit-is-a-character-other-than-X
+
+FAIL in (check-digit-is-a-character-other-than-X) (isbn_verifier_test.clj:15)
+expected: (= false (isbn? "3-598-21507-A"))
+  actual: (not (= false true))
+
+Ran 14 tests containing 14 assertions.
+2 failures, 0 errors.
+Tests failed.

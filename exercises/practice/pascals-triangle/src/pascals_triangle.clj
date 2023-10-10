@@ -1,7 +1,10 @@
 (ns pascals-triangle)
 
-(def triangle)
+(defn triangle [n]
+  (->> (iterate (fn [row]
+                  (conj (mapv + (cons 0 row) (conj row 0)) 1))
+                [1])
+       (take n)))
 
-(defn row [] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn row [n]
+  (nth (triangle (inc n)) (dec n)))

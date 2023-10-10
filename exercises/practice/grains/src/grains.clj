@@ -1,9 +1,9 @@
 (ns grains)
 
-(defn square [] ;; <- arglist goes here
-    ;; your code goes here
+(defn square [n]
+    (long (Math/pow 2 (dec n)))
 )
 
-(defn total []  ;; <- arglist goes here
-    ;; your code goes here
+(defn total []
+    (dec (long (Math/pow 2 64)))
 )

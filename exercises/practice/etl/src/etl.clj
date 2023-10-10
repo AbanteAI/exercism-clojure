@@ -1,5 +1,5 @@
 (ns etl)
 
-(defn transform [source] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn transform [source]
+  (into {} (for [[score letters] source, letter letters]
+             [(clojure.string/lower-case (str letter)) score])))

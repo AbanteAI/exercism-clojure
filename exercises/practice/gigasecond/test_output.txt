@@ -1,0 +1,24 @@
+
+lein test gigasecond-test
+
+lein test :only gigasecond-test/from-apr-25-2011
+
+FAIL in (from-apr-25-2011) (gigasecond_test.clj:6)
+expected: (= [2043 1 1] (gigasecond/from 2011 4 25))
+  actual: (not (= [2043 1 1] #object[java.time.LocalDateTime 0x47b2e9e1 "2042-12-31T17:46:40"]))
+
+lein test :only gigasecond-test/from-jun-13-1977
+
+FAIL in (from-jun-13-1977) (gigasecond_test.clj:9)
+expected: (= [2009 2 19] (gigasecond/from 1977 6 13))
+  actual: (not (= [2009 2 19] #object[java.time.LocalDateTime 0x59942b48 "2009-02-18T17:46:40"]))
+
+lein test :only gigasecond-test/from-jul-19-1959
+
+FAIL in (from-jul-19-1959) (gigasecond_test.clj:12)
+expected: (= [1991 3 27] (gigasecond/from 1959 7 19))
+  actual: (not (= [1991 3 27] #object[java.time.LocalDateTime 0x1869f114 "1991-03-26T17:46:40"]))
+
+Ran 3 tests containing 3 assertions.
+3 failures, 0 errors.
+Tests failed.

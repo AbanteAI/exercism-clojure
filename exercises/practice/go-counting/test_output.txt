@@ -1,0 +1,72 @@
+
+lein test go-counting-test
+
+lein test :only go-counting-test/territories
+
+FAIL in (territories) (go_counting_test.clj:27)
+expected: (= (g/territories [" "]) {:black-territory #{}, :white-territory #{}, :null-territory #{[0 0]}})
+  actual: (not (= {:black #{}, :white #{}, :none #{}, \space ([0 0])} {:black-territory #{}, :white-territory #{}, :null-territory #{[0 0]}}))
+
+lein test :only go-counting-test/territories
+
+FAIL in (territories) (go_counting_test.clj:31)
+expected: (= (g/territories [" BW " " BW "]) {:black-territory #{[0 0] [0 1]}, :white-territory #{[3 0] [3 1]}, :null-territory #{}})
+  actual: (not (= {:black #{}, :white #{}, :none #{}, \space ([3 1] [3 0] [0 1] [0 0] [3 1] [3 0] [0 1] [0 0]), \B ([1 1] [1 0] [1 1] [1 0]), \W ([2 1] [2 0] [2 1] [2 0])} {:black-territory #{[0 0] [0 1]}, :white-territory #{[3 0] [3 1]}, :null-territory #{}}))
+
+lein test :only go-counting-test/territories
+
+FAIL in (territories) (go_counting_test.clj:35)
+expected: (= (g/territories [" B "]) {:black-territory #{[0 0] [2 0]}, :white-territory #{}, :null-territory #{}})
+  actual: (not (= {:black #{}, :white #{}, :none #{}, \space ([2 0] [0 0]), \B ([1 0])} {:black-territory #{[0 0] [2 0]}, :white-territory #{}, :null-territory #{}}))
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:13)
+expected: (= (g/territory example [0 1]) {:stones #{[0 0] [1 0] [0 1]}, :owner :black})
+  actual: (not (= {:owner \space, :territory #{[0 0] [1 0] [0 1]}} {:stones #{[0 0] [1 0] [0 1]}, :owner :black}))
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:15)
+expected: (= (g/territory example [2 3]) {:stones #{[2 3]}, :owner :white})
+  actual: (not (= {:owner \space, :territory #{[2 3]}} {:stones #{[2 3]}, :owner :white}))
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:17)
+expected: (= (g/territory example [1 4]) {:stones #{[1 4] [0 3] [0 4]}, :owner nil})
+  actual: (not (= {:owner \space, :territory #{[1 4] [0 3] [0 4]}} {:stones #{[1 4] [0 3] [0 4]}, :owner nil}))
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:19)
+expected: (= (g/territory example [1 1]) {:stones #{}, :owner nil})
+  actual: (not (= {:owner \B, :territory #{[1 1]}} {:stones #{}, :owner nil}))
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:21)
+expected: (thrown? Throwable (g/territory example [-1 1]))
+  actual: nil
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:22)
+expected: (thrown? Throwable (g/territory example [5 1]))
+  actual: nil
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:23)
+expected: (thrown? Throwable (g/territory example [1 -1]))
+  actual: nil
+
+lein test :only go-counting-test/territory
+
+FAIL in (territory) (go_counting_test.clj:24)
+expected: (thrown? Throwable (g/territory example [1 5]))
+  actual: nil
+
+Ran 2 tests containing 11 assertions.
+11 failures, 0 errors.
+Tests failed.

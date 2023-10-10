@@ -1,0 +1,104 @@
+
+lein test clock-test
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:72)
+add no minutes
+expected: (= "06:41" test-clock)
+  actual: (not (= "06:41" "08:41"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:75)
+add to next hour
+expected: (= "01:25" test-clock)
+  actual: (not (= "01:25" "02:25"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:81)
+add more than two hours with carry
+expected: (= "03:25" test-clock)
+  actual: (not (= "03:25" "04:25"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:84)
+add across midnight
+expected: (= "00:01" test-clock)
+  actual: (not (= "00:01" "01:01"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:87)
+add more than one day (1500 min = 25 hrs)
+expected: (= "06:32" test-clock)
+  actual: (not (= "06:32" "08:32"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:96)
+subtract to previous hour
+expected: (= "09:33" test-clock)
+  actual: (not (= "09:33" "10:33"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:99)
+subtract more than an hour
+expected: (= "08:53" test-clock)
+  actual: (not (= "08:53" "09:53"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:102)
+subtract across midnight
+expected: (= "23:59" test-clock)
+  actual: (not (= "23:59" "00:59"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:108)
+subtract more than two hours with borrow
+expected: (= "03:35" test-clock)
+  actual: (not (= "03:35" "04:35"))
+
+lein test :only clock-test/add-time-test
+
+FAIL in (add-time-test) (clock_test.clj:111)
+subtract more than one day (1500 min = 25 hrs)
+expected: (= "04:32" test-clock)
+  actual: (not (= "04:32" "06:32"))
+
+lein test :only clock-test/create-clock-test
+
+FAIL in (create-clock-test) (clock_test.clj:27)
+minutes roll over
+expected: (= "02:40" test-clock)
+  actual: (not (= "02:40" "03:40"))
+
+lein test :only clock-test/create-clock-test
+
+FAIL in (create-clock-test) (clock_test.clj:30)
+minutes roll over continuously
+expected: (= "04:43" test-clock)
+  actual: (not (= "04:43" "05:43"))
+
+lein test :only clock-test/create-clock-test
+
+FAIL in (create-clock-test) (clock_test.clj:33)
+hour and minutes roll over
+expected: (= "03:40" test-clock)
+  actual: (not (= "03:40" "04:40"))
+
+lein test :only clock-test/create-clock-test
+
+FAIL in (create-clock-test) (clock_test.clj:57)
+negative minutes roll over continuously
+expected: (= "16:40" test-clock)
+  actual: (not (= "16:40" "17:40"))
+
+Ran 3 tests containing 50 assertions.
+14 failures, 0 errors.
+Tests failed.

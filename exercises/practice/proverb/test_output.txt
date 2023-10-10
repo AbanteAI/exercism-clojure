@@ -1,0 +1,36 @@
+
+lein test proverb-test
+
+lein test :only proverb-test/four-pieces-modernized
+
+FAIL in (four-pieces-modernized) (proverb_test.clj:40)
+expected: (= (recite (quote ("pin" "gun" "soldier" "battle"))) (str/join "\n" ["For want of a pin the gun was lost." "For want of a gun the soldier was lost." "For want of a soldier the battle was lost." "And all for the want of a pin."]))
+  actual: (not (= "For want of a pin the gun was lost.\nFor want of a gun the soldier was lost.\nFor want of a soldier the battle was lost.\nAnd all for the want of a \npin\n." "For want of a pin the gun was lost.\nFor want of a gun the soldier was lost.\nFor want of a soldier the battle was lost.\nAnd all for the want of a pin."))
+
+lein test :only proverb-test/one-piece
+
+FAIL in (one-piece) (proverb_test.clj:12)
+expected: (= (recite (quote ("nail"))) "And all for the want of a nail.")
+  actual: (not (= "And all for the want of a \nnail\n." "And all for the want of a nail."))
+
+lein test :only proverb-test/three-pieces
+
+FAIL in (three-pieces) (proverb_test.clj:23)
+expected: (= (recite (quote ("nail" "shoe" "horse"))) (str/join "\n" ["For want of a nail the shoe was lost." "For want of a shoe the horse was lost." "And all for the want of a nail."]))
+  actual: (not (= "For want of a nail the shoe was lost.\nFor want of a shoe the horse was lost.\nAnd all for the want of a \nnail\n." "For want of a nail the shoe was lost.\nFor want of a shoe the horse was lost.\nAnd all for the want of a nail."))
+
+lein test :only proverb-test/full-proverb
+
+FAIL in (full-proverb) (proverb_test.clj:30)
+expected: (= (recite (quote ("nail" "shoe" "horse" "rider" "message" "battle" "kingdom"))) (str/join "\n" ["For want of a nail the shoe was lost." "For want of a shoe the horse was lost." "For want of a horse the rider was lost." "For want of a rider the message was lost." "For want of a message the battle was lost." "For want of a battle the kingdom was lost." "And all for the want of a nail."]))
+  actual: (not (= "For want of a nail the shoe was lost.\nFor want of a shoe the horse was lost.\nFor want of a horse the rider was lost.\nFor want of a rider the message was lost.\nFor want of a message the battle was lost.\nFor want of a battle the kingdom was lost.\nAnd all for the want of a \nnail\n." "For want of a nail the shoe was lost.\nFor want of a shoe the horse was lost.\nFor want of a horse the rider was lost.\nFor want of a rider the message was lost.\nFor want of a message the battle was lost.\nFor want of a battle the kingdom was lost.\nAnd all for the want of a nail."))
+
+lein test :only proverb-test/two-pieces
+
+FAIL in (two-pieces) (proverb_test.clj:17)
+expected: (= (recite (quote ("nail" "shoe"))) (str/join "\n" ["For want of a nail the shoe was lost." "And all for the want of a nail."]))
+  actual: (not (= "For want of a nail the shoe was lost.\nAnd all for the want of a \nnail\n." "For want of a nail the shoe was lost.\nAnd all for the want of a nail."))
+
+Ran 6 tests containing 6 assertions.
+5 failures, 0 errors.
+Tests failed.

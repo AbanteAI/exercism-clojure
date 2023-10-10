@@ -1,0 +1,72 @@
+
+lein test roman-numerals-test
+
+lein test :only roman-numerals-test/five-hundred-seventy-five
+
+FAIL in (five-hundred-seventy-five) (roman_numerals_test.clj:48)
+expected: (= "DLXXV" (roman-numerals/numerals 575))
+  actual: (not (= "DLXXV" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXV"))
+
+lein test :only roman-numerals-test/one-hundred-forty-one
+
+FAIL in (one-hundred-forty-one) (roman_numerals_test.clj:39)
+expected: (= "CXLI" (roman-numerals/numerals 141))
+  actual: (not (= "CXLI" "XXXXXXXXXXXXXXI"))
+
+lein test :only roman-numerals-test/four-hundred-two
+
+FAIL in (four-hundred-two) (roman_numerals_test.clj:45)
+expected: (= "CDII" (roman-numerals/numerals 402))
+  actual: (not (= "CDII" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXII"))
+
+lein test :only roman-numerals-test/one-hundred-sixty-three
+
+FAIL in (one-hundred-sixty-three) (roman_numerals_test.clj:42)
+expected: (= "CLXIII" (roman-numerals/numerals 163))
+  actual: (not (= "CLXIII" "XXXXXXXXXXXXXXXXIII"))
+
+lein test :only roman-numerals-test/nine-hundred-eleven
+
+FAIL in (nine-hundred-eleven) (roman_numerals_test.clj:51)
+expected: (= "CMXI" (roman-numerals/numerals 911))
+  actual: (not (= "CMXI" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXI"))
+
+lein test :only roman-numerals-test/ninety-three
+
+FAIL in (ninety-three) (roman_numerals_test.clj:36)
+expected: (= "XCIII" (roman-numerals/numerals 93))
+  actual: (not (= "XCIII" "XXXXXXXXXIII"))
+
+lein test :only roman-numerals-test/three-thousand
+
+FAIL in (three-thousand) (roman_numerals_test.clj:57)
+expected: (= "MMM" (roman-numerals/numerals 3000))
+  actual: (not (= "MMM" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"))
+
+lein test :only roman-numerals-test/nine
+
+FAIL in (nine) (roman_numerals_test.clj:24)
+expected: (= "IX" (roman-numerals/numerals 9))
+  actual: (not (= "IX" "VIV"))
+
+lein test :only roman-numerals-test/one-thousand-twenty-four
+
+FAIL in (one-thousand-twenty-four) (roman_numerals_test.clj:54)
+expected: (= "MXXIV" (roman-numerals/numerals 1024))
+  actual: (not (= "MXXIV" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXIV"))
+
+lein test :only roman-numerals-test/fifty-nine
+
+FAIL in (fifty-nine) (roman_numerals_test.clj:33)
+expected: (= "LIX" (roman-numerals/numerals 59))
+  actual: (not (= "LIX" "XXXXXVIV"))
+
+lein test :only roman-numerals-test/forty-eight
+
+FAIL in (forty-eight) (roman_numerals_test.clj:30)
+expected: (= "XLVIII" (roman-numerals/numerals 48))
+  actual: (not (= "XLVIII" "XXXXVIII"))
+
+Ran 18 tests containing 18 assertions.
+11 failures, 0 errors.
+Tests failed.

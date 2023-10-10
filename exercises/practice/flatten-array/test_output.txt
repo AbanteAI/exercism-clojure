@@ -1,0 +1,6 @@
+WARNING: flatten already refers to: #'clojure.core/flatten in namespace: flatten-array, being replaced by: #'flatten-array/flatten
+
+lein test flatten-array-test
+
+Ran 5 tests containing 5 assertions.
+0 failures, 0 errors.

@@ -1,17 +1,20 @@
 (ns triangle)
 
-(defn is-valid? [] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn is-valid? [a b c]
+  (and (> a 0) (> b 0) (> c 0)
+       (>= (+ a b) c)
+       (>= (+ a c) b)
+       (>= (+ b c) a)))
 
-(defn equilateral? [] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn equilateral? [a b c]
+  (and (is-valid? a b c)
+       (= a b c)))
 
-(defn isosceles? [] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn isosceles? [a b c]
+  (and (is-valid? a b c)
+       (or (= a b) (= a c) (= b c))))
 
-(defn scalene? [] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn scalene? [a b c]
+  (and (is-valid? a b c)
+       (not (= a b c))
+       (not (or (= a b) (= a c) (= b c)))))

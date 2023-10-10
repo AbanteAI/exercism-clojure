@@ -1,0 +1,69 @@
+
+lein test zipper-test
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:32)
+tree from deep focus
+expected: (= tree (-> tree zipper/from-tree zipper/left zipper/right zipper/to-tree))
+  actual: (not (= {:value 1, :left {:value 2, :left nil, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} {:value 3, :left nil, :right nil}))
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:43)
+left, right, and up
+expected: (= 3 (-> tree zipper/from-tree zipper/left zipper/up zipper/right zipper/up zipper/left zipper/right zipper/value))
+  actual: (not (= 3 nil))
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:54)
+test ability to descend multiple levels and return
+expected: (= 1 (-> tree zipper/from-tree zipper/left zipper/right zipper/up zipper/up zipper/value))
+  actual: (not (= 1 nil))
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:63)
+set_value
+expected: (= {:value 1, :left {:value 5, :left nil, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} (-> tree zipper/from-tree zipper/left (zipper/set-value 5) zipper/to-tree))
+  actual: (not (= {:value 1, :left {:value 5, :left nil, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} {:value 5, :left nil, :right {:value 3, :left nil, :right nil}}))
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:78)
+set_value after traversing up
+expected: (= {:value 1, :left {:value 5, :left nil, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} (-> tree zipper/from-tree zipper/left zipper/right zipper/up (zipper/set-value 5) zipper/to-tree))
+  actual: (not (= {:value 1, :left {:value 5, :left nil, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} {:value 5}))
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:95)
+set_left with leaf
+expected: (= {:value 1, :left {:value 2, :left {:value 5, :left nil, :right nil}, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} (-> tree zipper/from-tree zipper/left (zipper/set-left {:value 5, :left nil, :right nil}) zipper/to-tree))
+  actual: (not (= {:value 1, :left {:value 2, :left {:value 5, :left nil, :right nil}, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} {:value 2, :left {:value 5, :left nil, :right nil}, :right {:value 3, :left nil, :right nil}}))
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:114)
+set_right with null
+expected: (= {:value 1, :left {:value 2, :left nil, :right nil}, :right {:value 4, :left nil, :right nil}} (-> tree zipper/from-tree zipper/left (zipper/set-right nil) zipper/to-tree))
+  actual: (not (= {:value 1, :left {:value 2, :left nil, :right nil}, :right {:value 4, :left nil, :right nil}} {:value 2, :left nil, :right nil}))
+
+lein test :only zipper-test/expected-value-test
+
+FAIL in (expected-value-test) (zipper_test.clj:151)
+set_value on deep focus
+expected: (= {:value 1, :left {:value 2, :left nil, :right {:value 5, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} (-> tree zipper/from-tree zipper/left zipper/right (zipper/set-value 5) zipper/to-tree))
+  actual: (not (= {:value 1, :left {:value 2, :left nil, :right {:value 5, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} {:value 5, :left nil, :right nil}))
+
+lein test :only zipper-test/sameResultFromOperations-test
+
+FAIL in (sameResultFromOperations-test) (zipper_test.clj:169)
+different paths to same zipper
+expected: (= (-> {:value 1, :left {:value 2, :left nil, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} zipper/from-tree zipper/right) (-> {:value 1, :left {:value 2, :left nil, :right {:value 3, :left nil, :right nil}}, :right {:value 4, :left nil, :right nil}} zipper/from-tree zipper/left zipper/up zipper/right))
+  actual: (not (= {:tree {:value 4, :left nil, :right nil}, :path [:right]} nil))
+
+Ran 2 tests containing 14 assertions.
+9 failures, 0 errors.
+Tests failed.
